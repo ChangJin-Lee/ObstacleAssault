@@ -64,5 +64,5 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DT)
 {
-	UE_LOG(LogTemp, Display, TEXT("%s Rotating...", *GetName()));
+	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *GetName());
 }
