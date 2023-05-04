@@ -55,9 +55,14 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 	}
 }
 
-void AMovingPlatform::RotatePlatform(float DT)
+void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *GetName());
+	// UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *GetName());
+	FRotator CurrentRotation = GetActorRotation();
+	// -90도에서 +90도로 돌아갈때 에러처리가 쉽지 않음.
+	// CurrentRotation = CurrentRotation + RotationVelocity * DeltaTime;
+	// SetActorRotation(CurrentRotation);
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 bool AMovingPlatform::ShouldPlatformReturn() const
